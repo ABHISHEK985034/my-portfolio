@@ -8,6 +8,13 @@ export default function Hero() {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleTyping = () => {
@@ -41,39 +48,37 @@ export default function Hero() {
 
   return (
     <section className="section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden' }}>
-      {/* Social Sidebar */}
-      <framerMotion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        style={{
-          position: 'fixed',
-          left: '2rem',
-          bottom: '50%',
-          transform: 'translateY(50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1.5rem',
-          zIndex: 100,
-          '@media (max-width: 768px)': {
-            display: 'none'
-          }
-        } as any}
-      >
-        {socialLinks.map((link, i) => (
-          <framerMotion.a
-            key={i}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -4, color: 'var(--accent-color)' }}
-            style={{ color: 'rgba(255,255,255,0.4)', transition: 'color 0.3s ease' }}
-          >
-            {link.icon}
-          </framerMotion.a>
-        ))}
-        <div style={{ width: '1px', height: '100px', backgroundColor: 'rgba(255,255,255,0.1)', margin: '0 auto' }}></div>
-      </framerMotion.div>
+      {!isMobile && (
+        <framerMotion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          style={{
+            position: 'fixed',
+            left: '2rem',
+            bottom: '50%',
+            transform: 'translateY(50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1.5rem',
+            zIndex: 100
+          }}
+        >
+          {socialLinks.map((link, i) => (
+            <framerMotion.a
+              key={i}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -4, color: 'var(--accent-color)' }}
+              style={{ color: 'rgba(255,255,255,0.4)', transition: 'color 0.3s ease' }}
+            >
+              {link.icon}
+            </framerMotion.a>
+          ))}
+          <div style={{ width: '1px', height: '100px', backgroundColor: 'rgba(255,255,255,0.1)', margin: '0 auto' }}></div>
+        </framerMotion.div>
+      )}
 
       {/* Animated Background Elements */}
       <framerMotion.div
@@ -265,8 +270,8 @@ export default function Hero() {
             transition={{ type: 'spring', stiffness: 300 }}
             style={{
               position: 'relative',
-              width: '320px',
-              height: '400px',
+              width: isMobile ? '280px' : '320px',
+              height: isMobile ? '350px' : '400px',
               borderRadius: '24px',
               overflow: 'hidden',
               border: '1px solid rgba(255, 255, 255, 0.1)',

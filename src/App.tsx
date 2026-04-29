@@ -50,7 +50,7 @@ function App() {
         <Achievements />
         <Contact />
       </main>
-      
+
       <Chatbot />
     </>
   );

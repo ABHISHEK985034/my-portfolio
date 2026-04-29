@@ -52,7 +52,7 @@ export default function Skills() {
         <div style={{ width: '60px', height: '4px', background: 'linear-gradient(90deg, var(--accent-color), var(--accent-secondary))', borderRadius: '2px' }}></div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
         {categories.map((category, idx) => (
           <motion.div 
             key={idx}
