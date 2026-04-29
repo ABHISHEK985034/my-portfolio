@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Trophy, Medal, Award, Star } from 'lucide-react';
+import { Trophy, Medal, Award } from 'lucide-react';
 
 export default function Achievements() {
   const achievements = [

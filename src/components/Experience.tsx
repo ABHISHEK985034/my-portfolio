@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink, ChevronRight } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin, ChevronRight } from 'lucide-react';
 
 export default function Experience() {
   const experiences = [

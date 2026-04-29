@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Loader2, Bot } from 'lucide-react';
+import { MessageSquare, X, Send, Bot } from 'lucide-react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const systemInstruction = `

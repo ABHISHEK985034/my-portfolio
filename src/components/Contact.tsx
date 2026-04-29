@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Linkedin, Github, Send, ExternalLink, Heart, User, MessageSquare } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, ExternalLink, Heart, User, MessageSquare } from 'lucide-react';
 
 export default function Contact() {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'sent'>('idle');

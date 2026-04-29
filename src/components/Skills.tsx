@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Database, Wrench, Heart } from 'lucide-react';
+import { Terminal, Database, Wrench } from 'lucide-react';
 
 export default function Skills() {
   const categories = [
